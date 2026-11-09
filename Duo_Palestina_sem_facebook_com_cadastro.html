@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Duo Palestina | Sorveteria e Açaíteria</title>
+<style>
+:root{--purple:#1747a6;--deep:#102b69;--green:#ffd43b;--pink:#f05aa6;--bg:#f5f7fc;--text:#242b3a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif}
+.top{height:56px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 4%;box-shadow:0 2px 10px #16002b12;position:sticky;top:0;z-index:5}
+.brand{font-family:Georgia,serif;font-size:20px;color:#173b86;white-space:nowrap}.top-actions{display:flex;align-items:center;gap:8px}.social-login{border:0;border-radius:9px;padding:9px 11px;font-weight:700;cursor:pointer;background:#f1f4fa;color:#173b86}.social-login.facebook{background:#1877f2;color:#fff}.social-login.google{background:#fff;border:1px solid #d9deea}
+.auth-links{display:flex;flex-wrap:wrap;gap:14px;margin-top:14px;font-size:14px}.auth-links a{color:#1747a6;font-weight:700;text-decoration:none}.auth-links a:hover{text-decoration:underline}.nav{display:flex;gap:24px;align-items:center}.nav a{color:#655d6b;text-decoration:none;font-size:14px}.nav a:hover{color:#8a00a9}.enter{color:#2a1738!important;font-weight:bold}
+.hero{height:350px;background:radial-gradient(circle at 78% 20%,#3f83e8 0 18%,transparent 19%),linear-gradient(115deg,#102b69,#2364c5 65%,#163b86);color:white;position:relative;overflow:hidden;padding:34px 7%;display:flex;align-items:center}
+.hero:before,.hero:after{content:"";position:absolute;border:2px solid #ffd43b;border-radius:50%;opacity:.35}.hero:before{width:320px;height:320px;right:3%;top:-150px}.hero:after{width:220px;height:220px;right:28%;bottom:-160px}
+.hero-copy{z-index:1;max-width:55%}.splash{display:inline-block;background:var(--green);color:#173b86;font-weight:1000;font-size:clamp(30px,5vw,58px);padding:3px 18px;transform:rotate(-2deg);letter-spacing:-2px}
+.hero h1{font-size:clamp(25px,3vw,38px);margin:16px 0 7px;line-height:1.05}.hero p{font-size:18px;line-height:1.4;max-width:440px}.hero-art{position:absolute;right:7%;bottom:-12px;width:42%;height:95%;display:flex;align-items:flex-end;justify-content:center;gap:10px}
+.cup{width:28%;height:46%;border-radius:12px 12px 40px 40px;background:linear-gradient(90deg,#f9dfb0,#fff 40%,#f6c97f);border:5px solid #fff;box-shadow:0 8px 20px #0007;position:relative;transform:rotate(-5deg);display:flex;justify-content:center;align-items:center;font-size:50px}
+.cup:nth-child(2){height:60%;transform:rotate(3deg);background:linear-gradient(90deg,#8a3c13,#f7bb64,#6d2108)}.cup:nth-child(3){height:52%;transform:rotate(7deg);background:linear-gradient(90deg,#f8d9a0,#fff,#d9a65e)}
+.cup:before{content:"DUO PALESTINA";position:absolute;top:45%;left:-8%;width:116%;padding:7px 0;background:var(--green);color:#173b86;text-align:center;font-size:10px;font-weight:1000;border-radius:50%}
+.wrap{max-width:1140px;margin:-1px auto 0;padding:0 22px;position:relative}
+.store-card{background:#fff;border-radius:0 0 22px 22px;padding:0 22px 18px;box-shadow:0 8px 25px #1b123010}
+.store-head{display:flex;justify-content:space-between;align-items:center;gap:15px;min-height:72px}
+.logo{width:120px;height:120px;margin-top:-45px;border-radius:50%;background:var(--purple);border:5px solid white;color:white;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 5px 14px #0002;font-weight:bold;z-index:2}
+.logo b{font-size:40px;color:var(--green);line-height:1}.logo small{font-size:9px;letter-spacing:.4px}.logo em{font-family:Georgia;font-size:12px}
+.status{background:#ffe9ed;color:#d52c46;border-radius:30px;padding:10px 15px;font-size:13px;font-weight:bold}
+h2.store-name{font-family:Georgia,serif;font-weight:400;font-size:clamp(28px,4vw,40px);margin:4px 0 12px}
+.info{display:grid;grid-template-columns:1fr 1fr;border:1px solid #e3e7ed;border-radius:14px;overflow:hidden}
+.info div{padding:13px}.info div+div{border-left:1px solid #e3e7ed}.info small{display:block;color:#777;margin-bottom:8px}.info strong{color:#e64a20;font-family:Georgia}.info a{color:#e000c9}
+.page{display:none}.page.active{display:block}.notice,.panel{background:white;border-radius:14px;padding:20px;margin:17px 0;box-shadow:0 5px 16px #1b12300b}
+.notice h3{margin:0 0 8px;font:20px Georgia}.notice p{margin:0 0 16px;color:#625b68}
+.pink-btn{border:0;background:var(--pink);color:white;padding:12px 20px;border-radius:11px;font-weight:bold;cursor:pointer;box-shadow:0 4px 9px #ed00d744}
+.section-title{font:28px Georgia;margin:25px 0 15px;color:#1747a6}
+.categories{display:flex;gap:10px;overflow:auto;padding:3px 0 14px}.cat{background:white;border:1px solid #e7dfed;border-radius:30px;padding:10px 17px;white-space:nowrap;cursor:pointer}.cat.active{background:var(--purple);color:white}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;padding-bottom:25px}
+.product{background:white;border-radius:15px;overflow:hidden;box-shadow:0 5px 15px #1b12300b}.product-art{height:145px;display:grid;place-items:center;font-size:75px;background:linear-gradient(135deg,#f7e7ff,#ffe6ef)}.product-info{padding:15px}.product h3{margin:0 0 6px}.product p{margin:0 0 12px;color:#766e7c;font-size:13px;min-height:32px}.price-row{display:flex;justify-content:space-between;align-items:center}.price{color:#1747a6;font-size:19px;font-weight:900}
+.admin-panel{display:none;background:#fff;border:2px solid var(--green);border-radius:16px;padding:20px;margin:18px 0;box-shadow:0 5px 16px #1b12301a}.admin-panel.show{display:block}.admin-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.admin-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:16px 0}.admin-stat{background:#edf3ff;border-radius:12px;padding:14px}.admin-stat b{display:block;font-size:24px;color:var(--purple)}.admin-login{max-width:420px}.order-card{border:1px solid #e8dff0;border-radius:12px;padding:14px;margin:10px 0;background:#fff}.order-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.order-actions button{border:0;border-radius:8px;padding:9px 12px;cursor:pointer;font-weight:bold;background:#1747a6;color:white}.order-actions button.done{background:#398400}.order-status{display:inline-block;border-radius:20px;padding:5px 10px;background:#eaf1ff;color:#1747a6;font-size:12px;font-weight:bold}.admin-orders{margin-top:18px}
+.admin-products{margin:18px 0;padding:16px;background:#f7f9ff;border:1px solid #dce6fb;border-radius:14px}
+.product-editor{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:9px;margin:12px 0}
+.product-editor input,.product-editor select{width:100%;min-width:0;padding:11px;border:1px solid #d8deea;border-radius:9px;font:inherit;background:white}
+.admin-product-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:white;border:1px solid #e4e9f3;border-radius:10px;padding:10px 12px;margin:8px 0}
+.admin-product-actions{display:flex;gap:7px}.admin-product-actions button{border:0;border-radius:8px;padding:8px 11px;font-weight:700;cursor:pointer}.admin-product-actions .edit{background:#e8efff;color:#1747a6}.admin-product-actions .delete{background:#ffe9ed;color:#b4233b}.admin-empty{color:#766e7c;padding:14px;background:#f2f5fb;border-radius:10px}.admin-login button{margin-top:8px}.cart{position:fixed;right:20px;bottom:20px;z-index:8;background:var(--purple);color:#fff;border:0;border-radius:40px;padding:15px 20px;font-weight:bold;box-shadow:0 6px 20px #26004455;cursor:pointer}
+.modal{display:none;position:fixed;inset:0;background:#15002199;z-index:10;align-items:center;justify-content:center;padding:18px}.modal.show{display:flex}.modal-box{background:white;border-radius:18px;padding:22px;width:min(520px,100%);max-height:90vh;overflow:auto}.modal-box input,.modal-box textarea{width:100%;padding:12px;border:1px solid #ddd;border-radius:9px;margin:6px 0 12px;font:inherit}.cart-item{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #eee}
+
+.customer-order-card{background:#fff;border:1px solid #eee;border-radius:14px;padding:15px;margin:12px 0;box-shadow:0 3px 12px #2500440b}
+.customer-order-head{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+.customer-order-actions{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:14px}
+.customer-order-actions button{border:0;border-radius:9px;padding:10px 15px;font-weight:700;cursor:pointer}
+.customer-order-actions .details{background:#f0e9f8;color:var(--purple)}
+.customer-order-actions .again{background:var(--green);color:#173000}
+.customer-order-details{display:none;background:#faf7fc;border-radius:9px;padding:10px;margin-top:12px;font-size:14px}
+.customer-order-details.show{display:block}
+
+footer{text-align:center;padding:28px;background:#102b69;color:white;margin-top:30px}
+.mobile-bottom{display:none}
+@media(max-width:700px){
+ body{padding-bottom:78px}
+ .top{padding:0 10px}.brand{font-size:16px}.nav{display:none}.top-actions{gap:5px}.social-login{font-size:11px;padding:8px 7px}
+ .hero{height:300px;padding:25px 5%}.hero-copy{max-width:70%}.hero p{font-size:14px}.hero-art{right:-4%;width:48%;opacity:.85}.cup{font-size:30px}.store-head{min-height:75px}.info{grid-template-columns:1fr}.info div+div{border-left:0;border-top:1px solid #e3e7ed}.wrap{padding:0 12px}
+ .mobile-bottom{position:fixed;left:0;right:0;bottom:0;z-index:20;display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border-top:1px solid #e6e9f0;box-shadow:0 -5px 18px #172b5518;padding:8px 5px calc(8px + env(safe-area-inset-bottom));}
+ .mobile-bottom a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-decoration:none;color:#747b8b;font-size:11px;font-weight:700;padding:4px 0;min-height:48px}
+ .mobile-bottom a .nav-icon{font-size:21px;line-height:1}
+ .mobile-bottom a.active{color:#1747a6}
+ .mobile-bottom a.active .nav-icon{transform:translateY(-1px)}
+ .cart{bottom:88px;right:14px;padding:12px 16px}
+}
+</style>
+</head>
+<body>
+<header class="top">
+ <div class="brand">Duo Palestina</div>
+ <nav class="nav"><a href="#cardapio" onclick="showPage('cardapio');return false">▤ &nbsp;Cardápio</a><a href="#pedidos" onclick="showPage('pedidos');return false">📦 &nbsp;Pedidos</a><a href="#promocoes" onclick="showPage('promocoes');return false">◆ &nbsp;Promoções</a><a href="#perfil" onclick="showPage('perfil');return false">♟ &nbsp;Perfil</a><a href="#admin" class="enter" onclick="openAdminLogin();return false">ADMIN</a></nav>
+ <div class="top-actions"><button class="social-login google" onclick="socialLogin('google')">G Entrar com Google</button></div>
+</header>
+<nav class="mobile-bottom" aria-label="Navegação principal">
+ <a href="#cardapio" data-page="cardapio" class="active" onclick="showPage('cardapio');return false"><span class="nav-icon">⌂</span><span>Início</span></a>
+ <a href="#pedidos" data-page="pedidos" onclick="showPage('pedidos');return false"><span class="nav-icon">▤</span><span>Pedidos</span></a>
+ <a href="#promocoes" data-page="promocoes" onclick="showPage('promocoes');return false"><span class="nav-icon">％</span><span>Promoção</span></a>
+ <a href="#perfil" data-page="perfil" onclick="showPage('perfil');return false"><span class="nav-icon">♙</span><span>Conta</span></a>
+</nav>
+<section class="page active" id="page-cardapio"><section class="hero">
+ <div class="hero-copy"><div class="splash">DUO PALESTINA</div><h1>Açaí, sorvetes e<br>muito sabor!</h1><p><b style="color:var(--green);font-style:italic">Seu momento gelado começa aqui.</b><br>Escolha seus favoritos e peça sem sair de casa.</p></div>
+ <div class="hero-art"><div class="cup">🍦</div><div class="cup">🍫</div><div class="cup">🍨</div></div>
+</section>
+<main class="wrap">
+ <section class="admin-panel" id="adminPanel"><div class="admin-top"><div><h2 style="margin:0;color:var(--purple)">Painel do administrador</h2><small>Conectado como marcosjuniorjunior754@gmail.com</small></div><button class="pink-btn" onclick="adminLogout()">Sair</button></div><div class="admin-stats"><div class="admin-stat"><b id="adminProducts">0</b>Produtos no cardápio</div><div class="admin-stat"><b id="ordersCount">0</b>Pedidos recebidos</div><div class="admin-stat"><b id="pendingCount">0</b>Aguardando</div></div><section class="admin-products">
+ <h3 style="margin:0;color:var(--purple)">🧁 Gerenciar produtos</h3>
+ <p style="margin:6px 0;color:#687184;font-size:13px">Adicione produtos ou edite nome, descrição, preço, categoria e ícone do cardápio.</p>
+ <form id="productForm" onsubmit="saveProduct(event)">
+  <input type="hidden" id="productId">
+  <div class="product-editor">
+   <input id="productName" required maxlength="80" placeholder="Nome do produto">
+   <input id="productDescription" maxlength="180" placeholder="Descrição">
+   <input id="productPrice" required type="number" min="0.01" step="0.01" placeholder="Preço (R$)">
+   <select id="productCategory"><option>Açaí</option><option>Sorvetes</option><option>Milk-shakes</option><option>Picolés</option><option>Combos</option></select>
+   <input id="productEmoji" maxlength="8" placeholder="Ícone (ex.: 🍦)" value="🍦">
+  </div>
+  <button class="pink-btn" type="submit" id="productSaveButton">ADICIONAR PRODUTO</button>
+  <button type="button" class="pink-btn" style="background:#687184;margin-left:6px" onclick="resetProductForm()">LIMPAR</button>
+  <p id="productMessage" role="status" style="margin:8px 0;color:#398400"></p>
+ </form>
+ <div id="adminProductList"></div>
+</section>
+<div class="admin-orders"><h3>📦 Pedidos dos clientes</h3><div id="adminOrders"></div></div><p style="color:#a33;font-weight:bold">Pedidos recebidos pela internet. Entre com a conta de administrador para visualizar e atualizar os pedidos.</p></section>
+ <section class="store-card">
+  <div class="store-head"><div class="logo"><small>SORVETERIA E AÇAÍTERIA</small><b>DUO</b><em>PALESTINA</em></div><span class="status">🍦 Faça seu pedido online</span></div>
+  <h2 class="store-name">Duo Palestina</h2>
+  <div class="info"><div><small>🛵 Taxa de entrega</small><strong>A partir de R$ 3,00</strong></div><div><small>☏ WhatsApp</small><strong><a href="https://wa.me/5517997624825" target="_blank">(17) 99762-4825</a></strong></div></div>
+ </section>
+ <section id="cardapio"><h2 class="section-title">Nosso cardápio</h2><div class="categories"><button class="cat active" onclick="filter('Todos',this)">Todos</button><button class="cat" onclick="filter('Açaí',this)">Açaí</button><button class="cat" onclick="filter('Sorvetes',this)">Sorvetes</button><button class="cat" onclick="filter('Milk-shakes',this)">Milk-shakes</button><button class="cat" onclick="filter('Picolés',this)">Picolés</button><button class="cat" onclick="filter('Combos',this)">Combos</button></div><div class="products" id="products"></div></section></section>
+ <section class="page" id="page-pedidos"><section class="panel"><h2 class="section-title">Meus pedidos</h2><p>Acompanhe aqui os pedidos que você já fez.</p><div id="customerOrders"><p class="admin-empty">Você ainda não fez nenhum pedido.</p></div></section></section>
+ <section class="page" id="page-promocoes"><section class="notice"><h3>◆ Promoções</h3><p>No momento não há promoções disponiveis.</p></section></section>
+ <section class="page" id="page-perfil"><section class="panel" id="perfil"><h2 class="section-title">Minha conta</h2><div id="identifyPrompt" style="padding:15px;background:#fff8df;border:1px solid #f0d77a;border-radius:12px;margin-bottom:18px"><b>Por favor identifique-se para continuar.</b><p style="margin:8px 0 12px">Entre com sua conta para acessar seu perfil.</p><button class="social-login google" onclick="socialLogin('google')">G Entrar com Google</button><div class="auth-links"><a href="https://sorveteria-milkshakeup.menuintegrado.com.br/users/sign_up" target="_blank" rel="noopener">Não tem cadastro? Crie uma conta</a><a href="https://sorveteria-milkshakeup.menuintegrado.com.br/users/password/new" target="_blank" rel="noopener">Recuperar senha</a></div></div><div id="profileSignedIn" style="display:none"><p id="signedInLabel"></p><button type="button" class="social-login" onclick="customerLogout()">Sair da conta</button></div><h3 style="margin:0 0 16px;color:var(--purple)">Atualizar dados</h3><form id="profileForm" onsubmit="saveProfile(event)" style="max-width:560px"><label for="profileName"><b>Nome *</b></label><input id="profileName" name="name" autocomplete="name" required placeholder="Digite seu nome" style="width:100%;padding:12px;border:1px solid #ddd;border-radius:9px;margin:6px 0 14px;font:inherit"><label for="profileEmail"><b>Email *</b></label><input id="profileEmail" name="email" type="email" autocomplete="email" required placeholder="Digite seu e-mail" style="width:100%;padding:12px;border:1px solid #ddd;border-radius:9px;margin:6px 0 14px;font:inherit"><label for="profilePhone"><b>Celular *</b></label><input id="profilePhone" name="phone" type="tel" autocomplete="tel" required placeholder="(00) 00000-0000" style="width:100%;padding:12px;border:1px solid #ddd;border-radius:9px;margin:6px 0 14px;font:inherit"><label for="profilePassword"><b>Senha</b></label><input id="profilePassword" name="password" type="password" autocomplete="new-password" placeholder="Digite uma nova senha (opcional)" style="width:100%;padding:12px;border:1px solid #ddd;border-radius:9px;margin:6px 0 14px;font:inherit"><button class="pink-btn" type="submit">SALVAR ALTERAÇÕES</button><p id="profileMessage" role="status" style="margin:12px 0 0;color:#398400"></p></form><button type="button" class="pink-btn" style="margin-top:18px;background:#1747a6" onclick="openAdminLogin()">🔐 Acesso do administrador</button></section></section>
+</main>
+<button class="cart" onclick="openCart()">🛒 Meu pedido (<span id="count">0</span>)</button>
+<div class="modal" id="modal"><div class="modal-box"><button onclick="closeCart()" style="float:right;border:0;background:none;font-size:22px;cursor:pointer">✕</button><h2>🛒 Meu pedido</h2><div id="cartItems">Seu carrinho está vazio.</div><h3 id="sum">Total: R$ 0,00</h3><label>Seu nome</label><input id="customer" placeholder="Digite seu nome"><label>Telefone / WhatsApp</label><input id="phone" type="tel" placeholder="(00) 00000-0000"><label>Endereço de entrega</label><textarea id="address" rows="2" placeholder="Rua, número e bairro"></textarea><label>Forma de pagamento</label><select id="payment" style="width:100%;padding:12px;border:1px solid #ddd;border-radius:9px;margin:6px 0 12px;font:inherit"><option>Pix</option><option>Dinheiro</option><option>Cartão na entrega</option></select><button class="pink-btn" style="width:100%" onclick="sendOrder()">CONFIRMAR PEDIDO</button></div></div>
+
+<div class="modal" id="adminModal"><div class="modal-box admin-login"><button onclick="closeAdminLogin()" style="float:right;border:0;background:none;font-size:22px;cursor:pointer">✕</button><h2>🔐 Acesso do administrador</h2><label>E-mail</label><input id="adminEmail" type="email" placeholder="Seu e-mail"><label>Senha</label><input id="adminPassword" type="password" placeholder="Sua senha"><button class="pink-btn" style="width:100%" onclick="adminLogin()">ENTRAR NO PAINEL</button><p id="adminError" style="color:#c22;display:none">E-mail ou senha incorretos.</p></div></div>
+<footer>🍦 DUO PALESTINA • SORVETERIA E AÇAÍTERIA</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+// Configuração pública do projeto Supabase. A chave publishable pode ficar no site;
+// a segurança dos dados é aplicada pelas políticas RLS do banco.
+const SUPABASE_URL = 'https://tcwxxlvxyfxtomfmkhkp.supabase.co';
+const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_pYMzVm3Kw0ptjIs7gWsRXg_QM8uJGX7';
+const sbClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+let ordersChannel = null;
+const ADMIN_EMAIL = 'marcosjuniorjunior754@gmail.com';
+let items=[
+ {n:'Açaí tradicional',d:'Açaí cremoso para refrescar seu dia.',p:15,e:'🫐',c:'Açaí'},
+ {n:'Açaí completo',d:'Açaí com banana, granola e leite em pó.',p:20,e:'🍧',c:'Açaí'},
+ {n:'Sorvete na casquinha',d:'Duas bolas nos sabores da sua preferência.',p:7,e:'🍦',c:'Sorvetes'},
+ {n:'Pote de sorvete',d:'Cremoso e perfeito para compartilhar.',p:25,e:'🍨',c:'Sorvetes'},
+ {n:'Milk-shake chocolate',d:'Milk-shake gelado e bem cremoso.',p:16,e:'🥤',c:'Milk-shakes'},
+ {n:'Milk-shake morango',d:'O sabor clássico que todo mundo ama.',p:16,e:'🍓',c:'Milk-shakes'},
+ {n:'Picolé',d:'Uma delícia gelada para qualquer hora.',p:5,e:'🍡',c:'Picolés'},
+ {n:'Combo UP',d:'Milk-shake + sorvete para aproveitar!',p:25,e:'🍦',c:'Combos'}
+];
+let cart=[];
+const brl=n=>n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+function showPage(name){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));const page=document.getElementById('page-'+name);if(page)page.classList.add('active');document.querySelectorAll('.mobile-bottom a').forEach(a=>a.classList.toggle('active',a.dataset.page===name));if(name==='pedidos')renderCustomerOrders();window.scrollTo({top:0,behavior:'smooth'});}
+function showProducts(category='Todos'){let list=category==='Todos'?items:items.filter(x=>x.c===category);document.getElementById('products').innerHTML=list.map(x=>`<article class="product"><div class="product-art">${escapeHtml(x.e)}</div><div class="product-info"><h3>${escapeHtml(x.n)}</h3><p>${escapeHtml(x.d)}</p><div class="price-row"><span class="price">${brl(Number(x.p))}</span><button class="pink-btn" onclick="addByName(this)">Adicionar +</button></div></div></article>`).join('')}
+function filter(c,b){document.querySelectorAll('.cat').forEach(x=>x.classList.remove('active'));b.classList.add('active');showProducts(c)}
+function add(n){const item=items.find(x=>x.n===n);if(!item)return;cart.push(item);document.getElementById('count').textContent=cart.length}
+function addByName(button){const card=button.closest('.product');const name=card?.querySelector('h3')?.textContent;add(name)}
+function openCart(){document.getElementById('modal').classList.add('show');renderCart()}
+function closeCart(){document.getElementById('modal').classList.remove('show')}
+function renderCart(){let el=document.getElementById('cartItems');el.innerHTML=cart.length?cart.map((x,i)=>`<div class="cart-item"><span>${x.e} ${x.n}</span><b>${brl(x.p)} <button onclick="cart.splice(${i},1);document.getElementById('count').textContent=cart.length;renderCart()" style="border:0;background:none;color:#c33">✕</button></b></div>`).join(''):'Seu carrinho está vazio.';document.getElementById('sum').textContent='Total: '+brl(cart.reduce((s,x)=>s+x.p,0))}
+async function sendOrder(){
+ if(!cart.length){alert('Adicione produtos ao pedido.');return}
+ let n=document.getElementById('customer').value.trim(),a=document.getElementById('address').value.trim(),phone=document.getElementById('phone').value.trim(),payment=document.getElementById('payment').value;
+ if(!n||!a||!phone){alert('Preencha nome, telefone e endereço.');return}
+ const total=cart.reduce((sum,x)=>sum+x.p,0);
+ const orderPayload={customer_name:n,phone,address:a,payment,items:cart.map(x=>({name:x.n,price:x.p,emoji:x.e})),total,status:'Recebido'};
+ const waWindow=window.open('about:blank','_blank');
+ const {data,error}=await sbClient.from('orders').insert(orderPayload).select().single();
+ if(error){if(waWindow)waWindow.close();alert('Não foi possível enviar o pedido ao sistema. Confira se o SQL de configuração foi executado no Supabase. Detalhe: '+error.message);return}
+ const order={id:data.id,customer:n,phone,address:a,payment,items:orderPayload.items,total,status:data.status,createdAt:new Date(data.created_at).toLocaleString('pt-BR')};
+ let localOrders=JSON.parse(localStorage.getItem('milkshakeOrders')||'[]');localOrders.unshift(order);localStorage.setItem('milkshakeOrders',JSON.stringify(localOrders));
+ const lines=order.items.map(x=>`• ${x.name} - ${brl(x.price)}`).join('\n');
+ const msg=`NOVO PEDIDO #${order.id}\nCliente: ${n}\nTelefone: ${phone}\n${lines}\nTotal: ${brl(total)}\nPagamento: ${payment}\nEndereço: ${a}`;
+ cart=[];document.getElementById('count').textContent='0';renderCart();closeCart();alert('Pedido enviado! A sorveteria já pode recebê-lo no painel ADMIN.');
+ if(waWindow)waWindow.location.href='https://wa.me/5517997624825?text='+encodeURIComponent(msg);
+ renderCustomerOrders();if(sessionStorage.getItem('milkshakeAdmin')==='1')renderAdminOrders();
+}
+async function socialLogin(provider){const {error}=await sbClient.auth.signInWithOAuth({provider,options:{redirectTo:window.location.href}});if(error)alert('Não foi possível iniciar o login: '+error.message)}
+async function refreshCustomerAuth(){const {data}=await sbClient.auth.getSession();const user=data.session?.user;const prompt=document.getElementById('identifyPrompt');const signed=document.getElementById('profileSignedIn');const form=document.getElementById('profileForm');if(user){prompt.style.display='none';signed.style.display='block';document.getElementById('signedInLabel').textContent='Conectado como '+(user.email||user.user_metadata?.full_name||'cliente');form.style.display='block';document.getElementById('profileEmail').value=user.email||'';document.getElementById('profileName').value=user.user_metadata?.full_name||user.user_metadata?.name||'';}else{prompt.style.display='block';signed.style.display='none';form.style.display='none';}}
+function loadProfile(){const profile=JSON.parse(localStorage.getItem('milkshakeProfile')||'{}');document.getElementById('profileName').value=profile.name||'';document.getElementById('profileEmail').value=profile.email||'';document.getElementById('profilePhone').value=profile.phone||'';refreshCustomerAuth()}
+async function saveProfile(event){event.preventDefault();const profile={name:document.getElementById('profileName').value.trim(),email:document.getElementById('profileEmail').value.trim(),phone:document.getElementById('profilePhone').value.trim()};const message=document.getElementById('profileMessage');const {data,error}=await sbClient.auth.updateUser({data:{full_name:profile.name,name:profile.name,phone:profile.phone}});if(error){message.textContent='Não foi possível salvar na conta: '+error.message;return}localStorage.setItem('milkshakeProfile',JSON.stringify(profile));message.textContent='Perfil atualizado com sucesso!';document.getElementById('signedInLabel').textContent='Conectado como '+(data.user.email||profile.name);}
+async function customerLogout(){await sbClient.auth.signOut();localStorage.removeItem('milkshakeProfile');document.getElementById('profileMessage').textContent='Você saiu da sua conta.';await refreshCustomerAuth();}
+function renderCustomerOrders(){const el=document.getElementById('customerOrders');if(!el)return;const orders=JSON.parse(localStorage.getItem('milkshakeOrders')||'[]');if(!orders.length){el.innerHTML='<p class="admin-empty">Você ainda não fez nenhum pedido.</p>';return}el.innerHTML=orders.map(o=>`<article class="customer-order-card"><div class="customer-order-head"><b>Pedido #${String(o.id).slice(-6)}</b><span class="order-status">${o.status}</span></div><small>${o.createdAt}</small><p style="margin:8px 0">${o.items.map(i=>`${i.emoji||'🍦'} ${i.name}`).join(' · ')}</p><b>Total: ${brl(o.total)}</b><div id="customerOrderDetails${o.id}" class="customer-order-details"><b>Detalhes do pedido</b><br>${o.items.map(i=>`${i.emoji||'🍦'} ${i.name} — ${brl(i.price)}`).join('<br>')}<br><br>Pagamento: ${o.payment}<br>Endereço: ${o.address}<br>Telefone: ${o.phone}</div><div class="customer-order-actions"><button class="details" onclick="toggleCustomerOrderDetails(${o.id})">Detalhes</button><button class="again" onclick="repeatCustomerOrder(${o.id})">Pedir novamente</button></div></article>`).join('')}
+function toggleCustomerOrderDetails(id){const el=document.getElementById('customerOrderDetails'+id);if(el)el.classList.toggle('show')}
+function repeatCustomerOrder(id){const orders=JSON.parse(localStorage.getItem('milkshakeOrders')||'[]');const order=orders.find(o=>o.id===id);if(!order)return;cart=order.items.map(i=>({n:i.name,p:i.price,e:i.emoji||'🍦',c:'Todos'}));document.getElementById('count').textContent=cart.length;openCart();alert('Pedido adicionado novamente ao seu carrinho! Confira os itens e confirme o pedido.')}
+function notify(){if('Notification'in window){Notification.requestPermission().then(p=>alert(p==='granted'?'Notificações ativadas!':'Não foi possível ativar.'))}else alert('Seu navegador não permite notificações.')}
+function openAdminLogin(){document.getElementById('adminModal').classList.add('show');document.getElementById('adminError').style.display='none'}
+function closeAdminLogin(){document.getElementById('adminModal').classList.remove('show')}
+async function adminLogin(){
+ const email=document.getElementById('adminEmail').value.trim().toLowerCase();
+ const pass=document.getElementById('adminPassword').value;
+ const errorEl=document.getElementById('adminError');errorEl.style.display='none';
+ if(email!==ADMIN_EMAIL){errorEl.textContent='Este e-mail não tem acesso ao painel.';errorEl.style.display='block';return}
+ const {data,error}=await sbClient.auth.signInWithPassword({email,password:pass});
+ if(error){errorEl.textContent='Não foi possível entrar. Confira o usuário administrador criado no Supabase.';errorEl.style.display='block';return}
+ closeAdminLogin();await showAdminPanel(data.user);
+}
+async function showAdminPanel(user){
+ if(!user||user.email?.toLowerCase()!==ADMIN_EMAIL){await sbClient.auth.signOut();return}
+ document.getElementById('adminPanel').classList.add('show');
+ const initialProducts=items.map(p=>({name:p.n,description:p.d,price:p.p,category:p.c,emoji:p.e,active:true}));
+ const existing=await sbClient.from('products').select('id').limit(1);
+ if(!existing.error&&(!existing.data||existing.data.length===0)){const seeded=await sbClient.from('products').insert(initialProducts);if(seeded.error)console.warn('Não foi possível cadastrar o cardápio inicial:',seeded.error.message)}
+ await loadProducts();document.getElementById('adminProducts').textContent=items.length;renderAdminProducts();
+ sessionStorage.setItem('milkshakeAdmin','1');document.getElementById('adminPanel').scrollIntoView({behavior:'smooth'});
+ await renderAdminOrders();
+ if(ordersChannel)sbClient.removeChannel(ordersChannel);
+ ordersChannel=sbClient.channel('milkshake-orders-live').on('postgres_changes',{event:'*',schema:'public',table:'orders'},()=>renderAdminOrders()).subscribe();
+}
+async function renderAdminOrders(){
+ const el=document.getElementById('adminOrders');if(!el)return;
+ const {data,error}=await sbClient.from('orders').select('*').order('created_at',{ascending:false});
+ if(error){el.innerHTML='<div class="admin-empty">Erro ao carregar pedidos: '+error.message+'</div>';return}
+ const orders=data||[];document.getElementById('ordersCount').textContent=orders.length;document.getElementById('pendingCount').textContent=orders.filter(o=>o.status==='Recebido').length;
+ if(!orders.length){el.innerHTML='<div class="admin-empty">Nenhum pedido recebido ainda.</div>';return}
+ el.innerHTML=orders.map(o=>`<article class="order-card"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap"><b>Pedido #${o.id} — ${escapeHtml(o.customer_name)}</b><span class="order-status">${escapeHtml(o.status)}</span></div><small>${new Date(o.created_at).toLocaleString('pt-BR')} · ${escapeHtml(o.phone)}</small><p style="margin:9px 0">${(o.items||[]).map(i=>`${i.emoji||'🍦'} ${escapeHtml(i.name)} (${brl(Number(i.price))})`).join('<br>')}</p><b>Total: ${brl(Number(o.total))}</b><p style="margin:6px 0">Pagamento: ${escapeHtml(o.payment)}<br>Endereço: ${escapeHtml(o.address)}</p><div class="order-actions"><button onclick="setOrderStatus(${o.id},'Aceito')">Aceitar</button><button onclick="setOrderStatus(${o.id},'Em preparo')">Preparar</button><button class="done" onclick="setOrderStatus(${o.id},'Concluído')">Concluir</button></div></article>`).join('');
+}
+async function loadProducts(){
+ const {data,error}=await sbClient.from('products').select('*').eq('active',true).order('created_at',{ascending:true});
+ if(error){console.warn('Tabela products ainda não configurada; usando cardápio inicial.',error.message);showProducts();loadProfile();return}
+ if(data&&data.length){items=data.map(p=>({id:p.id,n:p.name,d:p.description||'',p:Number(p.price),e:p.emoji||'🍦',c:p.category||'Sorvetes'}));showProducts();}
+}
+function renderAdminProducts(){const el=document.getElementById('adminProductList');if(!el)return;el.innerHTML=items.map((p,i)=>`<div class="admin-product-row"><span>${escapeHtml(p.e)} <b>${escapeHtml(p.n)}</b> — ${brl(Number(p.p))} <small>(${escapeHtml(p.c)})</small></span><span class="admin-product-actions"><button class="edit" type="button" onclick="editProduct(${i})">Editar</button><button class="delete" type="button" onclick="deleteProduct(${i})">Excluir</button></span></div>`).join('')||'<p class="admin-empty">Nenhum produto cadastrado.</p>';}
+function resetProductForm(){document.getElementById('productForm').reset();document.getElementById('productId').value='';document.getElementById('productEmoji').value='🍦';document.getElementById('productSaveButton').textContent='ADICIONAR PRODUTO';}
+function editProduct(index){const p=items[index];if(!p)return;document.getElementById('productId').value=p.id||String(index);document.getElementById('productName').value=p.n;document.getElementById('productDescription').value=p.d;document.getElementById('productPrice').value=p.p;document.getElementById('productCategory').value=p.c;document.getElementById('productEmoji').value=p.e;document.getElementById('productSaveButton').textContent='SALVAR EDIÇÃO';document.getElementById('productName').scrollIntoView({behavior:'smooth',block:'center'});}
+async function saveProduct(event){event.preventDefault();const id=document.getElementById('productId').value;const product={name:document.getElementById('productName').value.trim(),description:document.getElementById('productDescription').value.trim(),price:Number(document.getElementById('productPrice').value),category:document.getElementById('productCategory').value,emoji:document.getElementById('productEmoji').value.trim()||'🍦',active:true};if(!product.name||!Number.isFinite(product.price)||product.price<=0)return;const msg=document.getElementById('productMessage');let result;if(id&&items.find(p=>String(p.id)===id)){result=await sbClient.from('products').update(product).eq('id',id);}else if(id){const index=Number(id);if(!Number.isInteger(index)||!items[index])return;const old=items[index];if(old.id){result=await sbClient.from('products').update(product).eq('id',old.id)}else{msg.textContent='Configure a tabela products no Supabase para salvar produtos permanentemente.';return}}else{result=await sbClient.from('products').insert(product)}if(result.error){msg.textContent='Não foi possível salvar. Confira se executou o SQL da tabela products no Supabase: '+result.error.message;return}msg.textContent='Produto salvo com sucesso!';resetProductForm();await loadProducts();renderAdminProducts();document.getElementById('adminProducts').textContent=items.length;}
+async function deleteProduct(index){const p=items[index];if(!p||!confirm(`Excluir ${p.n} do cardápio?`))return;if(!p.id){alert('Este produto inicial ainda não está salvo no banco. Execute o SQL e cadastre-o novamente.');return}const {error}=await sbClient.from('products').update({active:false}).eq('id',p.id);if(error){alert('Não foi possível excluir: '+error.message);return}await loadProducts();renderAdminProducts();document.getElementById('adminProducts').textContent=items.length;}
+function escapeHtml(value){return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+async function setOrderStatus(id,status){const {error}=await sbClient.from('orders').update({status}).eq('id',id);if(error)alert('Não foi possível atualizar: '+error.message);else await renderAdminOrders()}
+async function adminLogout(){sessionStorage.removeItem('milkshakeAdmin');if(ordersChannel){await sbClient.removeChannel(ordersChannel);ordersChannel=null}await sbClient.auth.signOut();document.getElementById('adminPanel').classList.remove('show')}
+showProducts();
+loadProducts();
+showPage('cardapio');
+if(location.hash==='#admin') openAdminLogin();
+sbClient.auth.onAuthStateChange(()=>{setTimeout(refreshCustomerAuth,0)});
+(async()=>{await refreshCustomerAuth();const {data}=await sbClient.auth.getSession();if(data.session?.user?.email?.toLowerCase()===ADMIN_EMAIL)await showAdminPanel(data.session.user)})();
+loadProfile();
+renderCustomerOrders();
+</script>
+</body></html>
